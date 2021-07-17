@@ -2,8 +2,6 @@ from django.urls import path
 from .views import (
     home,
     lista_medicos,
-)
-'''
     medico_novo,
     medico_update,
     lista_postos,
@@ -20,14 +18,12 @@ from .views import (
     PdfEscalas
     
 )
-'''
+
 
 
 urlpatterns = [
     path('', home, name='core_home'),
     path('medicos', lista_medicos, name='core_lista_medicos'),
-]
-'''
     path('medico-novo', medico_novo, name='core_medico_novo'),
     path('medico-update/<int:id>/', medico_update, name='core_medico_update'),
     
@@ -45,6 +41,4 @@ urlpatterns = [
     path('folga-novo', folga_novo, name='core_folga_novo'),
     path('folga-update/<int:id>/', folga_update, name='core_folga_update'),
     path('folga-delete/<int:id>/', folga_delete, name='core_folga_delete'),
-
 ]
-'''

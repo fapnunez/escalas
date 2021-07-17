@@ -1,9 +1,9 @@
 from django.forms import ModelForm
 from .models import (
     Medico,
-    #Posto,
-    #Folga,
-    #Escala
+    Posto,
+    Folga,
+    Escala
 )
 
 
@@ -12,10 +12,7 @@ class MedicoForm(ModelForm):
         model = Medico
         fields = '__all__'
 
-'''
-Posto,
-    Folga,
-    Escala
+
 class PostoForm(ModelForm):
     class Meta:
         model = Posto
@@ -32,6 +29,3 @@ class EscalaForm(ModelForm):
     class Meta:
         model = Escala
         fields = '__all__'
-
-
-'''
