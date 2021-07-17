@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Medico,
-    #Posto, 
+    Posto, 
     Folga, 
     Escala
 )
@@ -12,7 +12,7 @@ class EscalaAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Medico)
-#admin.site.register(Posto)
+admin.site.register(Posto)
 admin.site.register(Folga)
 admin.site.register(Escala, EscalaAdmin)
 

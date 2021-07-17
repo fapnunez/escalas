@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from .models import (
     Medico,
-    #Posto,
+    Posto,
     Folga,
     Escala
 )
@@ -12,12 +12,11 @@ class MedicoForm(ModelForm):
         model = Medico
         fields = '__all__'
 
-'''
+
 class PostoForm(ModelForm):
     class Meta:
         model = Posto
         fields = '__all__'
-'''
 
 
 class FolgaForm(ModelForm):

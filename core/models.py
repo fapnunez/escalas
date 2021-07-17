@@ -12,7 +12,7 @@ class Medico(models.Model):
     def __str__(self):
         return str(self.nome) 
 
-'''
+
 class Posto(models.Model):
     nome = models.CharField(max_length=50)
     rua = models.CharField(max_length=50)
@@ -26,7 +26,6 @@ class Posto(models.Model):
 
     def __str__(self):
         return self.nome
-'''
 
 
 class Folga(models.Model):
