@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block menu %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'core_home' %}">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'core_lista_escalas' %}">Escalas de Médicos</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'core_lista_medicos' %}">Cadastro de Médicos</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'core_lista_postos' %}">Cadastro de Postos de Saúde</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'core_lista_folgas' %}">Cadastro de Folgas</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-6">
+        <br>
+        <h2 class="btn btn-info btn-lg btn-block">Cadastro de Médicos</h2>
+
+        {% if sucesso %}
+            <p class="btn btn-success">{{ sucesso }}</p>
+        {% endif %}
+
+        <form action="{% url 'core_medico_novo' %}" method="POST">
+            {% csrf_token %}
+
+            {{ form|bootstrap }}
+
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+
+    <div class="col-6">    
+        <br>
+        <h2 class="btn btn-info btn-lg btn-block">Lista de Médicos</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Data de Adimissão</th>
+                <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medico in medicos %}
+                <tr>
+                <th scope="row">{{medico.id}}</th>
+                <td>{{medico.nome}}</td>
+                <td>{{medico.sobrenome}}</td>
+                <td>{{medico.data_admissao}}</td>
+                <td>
+                    <a class="btn btn-outline-dark" href="{% url 'core_medico_update' medico.id %}">Editar</a>
+                </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+{% endblock  %}

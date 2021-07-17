@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block menu %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'core_home' %}">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'core_lista_escalas' %}">Escalas de Médicos</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'core_lista_medicos' %}">Cadastro de Médicos</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'core_lista_postos' %}">Cadastro de Postos de Saúde</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'core_lista_folgas' %}">Cadastro de Folgas</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-6">
+        <br>
+        <h2 class="btn btn-info btn-lg btn-block">Cadastro de Postos</h2>
+
+        {% if sucesso %}
+            <p class="btn btn-success">{{ sucesso }}</p>
+        {% endif %}
+
+        <form action="{% url 'core_posto_novo' %}" method="POST">
+        {% csrf_token %}
+
+        {{ form|bootstrap }}
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </div>
+
+    <div class="col-6">
+        <br>
+        <h1 class="btn btn-info btn-lg btn-block">Lista de Postos </h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Número</th>               
+                <th scope="col">Bairro</th>               
+                <th scope="col">Cidade</th>               
+                <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for posto in postos %}
+                <tr>
+                <th scope="row">{{posto.id}}</th>
+                <td>{{posto.nome}}</td>
+                <td>{{posto.rua}}</td>
+                <td>{{posto.numero}}</td>
+                <td>{{posto.bairro}}</td>
+                <td>{{posto.cidade}}</td>
+                <td>
+                    <a class="btn btn-outline-dark" href="{% url 'core_posto_update' posto.id %}">Editar</a>
+                </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+</div>
+
+
+    </form>
+{% endblock  %}

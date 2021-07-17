@@ -1,0 +1,1 @@
+web: gunicorn escala_de_folgas.wsgi --log-file -

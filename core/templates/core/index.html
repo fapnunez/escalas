@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block menu %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'core_home' %}">Home</a>
+        </li>
+
+    
+    </ul>
+{% endblock %}
+
+
+{% block home %}
+        
+    <div class="row">
+        <div class="col">
+            <br>
+            <h1 class="btn btn-secondary btn-lg btn-block">Seja bem vindo ao sistema de gestão escalas de trabalho</h1>            
+        </div>
+        <h1>
+            <a class="btn btn-primary btn-lg btn-block" href="escalas">Escalas de Médicos</a>
+            <a class="btn btn-primary btn-lg btn-block" href="medicos">Cadastro de Médicos</a>
+            <a class="btn btn-primary btn-lg btn-block" href="postos">Cadastro de Postos de Saúde</a>
+            <a  class="btn btn-primary btn-lg btn-block" href="folgas">Cadastro de Folgas</a>
+        </h1>
+            
+    </div>
+{% endblock  %}
