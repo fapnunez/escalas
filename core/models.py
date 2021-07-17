@@ -1,12 +1,13 @@
 from django.db import models
  
 class Medico(models.Model):
+    idade = models.CharField(max_length=50)
     nome = models.CharField(max_length=50)
     sobrenome = models.CharField(max_length=50)
     data_admissao = models.DateField()
     disponivel = models.BooleanField(default=True)
 
-
+'''
     class Meta:
         unique_together = ['nome', 'sobrenome', 'data_admissao']
 
@@ -53,3 +54,5 @@ class Escala(models.Model):
         return str(self.medico)
 
 
+
+'''

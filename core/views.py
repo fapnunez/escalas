@@ -2,15 +2,15 @@ from django.shortcuts import render, redirect
 
 from .forms import(
     MedicoForm,
-    PostoForm,
-    FolgaForm,
-    EscalaForm
+    #PostoForm,
+    #FolgaForm,
+    #EscalaForm
 )
 from core.models import (
     Medico,
-    Posto,
-    Folga,
-    Escala,
+    #Posto,
+    #Folga,
+    #Escala,
 )
 
 import datetime
@@ -32,6 +32,7 @@ def lista_medicos(request):
     data = {'medicos': medicos, 'form': form}
     return render(request, 'core/lista_medicos.html', data)
 
+'''
 
 def medico_novo(request):
     form = MedicoForm(request.POST or None)
@@ -262,3 +263,4 @@ class PdfEscalas(View):
 
 # Utilizando dessa forma eu vou poder ter ela uma vez só e reutilizar no sitema inteiro, qualquer lugar
 # no sistema que eu fizer essa chamada passando o html e os parametros, ela vai gerar o pdf.
+'''
