@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 
 from .forms import(
     MedicoForm,
-    PostoForm,
+    #PostoForm,
     FolgaForm,
     EscalaForm
 )
 from core.models import (
     Medico,
-    Posto,
+    #Posto,
     Folga,
     Escala,
 )
@@ -59,6 +59,7 @@ def medico_update(request, id):
         return render(request, 'core/update_medico.html', data)
 
 #POSTOS
+'''
 def lista_postos(request):
     postos = Posto.objects.all().filter(disponivel=True) # listo apenas os disponiveis, para deletar somente django admin, ou no db.
     form = PostoForm()
@@ -90,6 +91,7 @@ def posto_update(request, id):
             return redirect('core_lista_postos')
     else:
         return render(request, 'core/update_posto.html', data)
+'''
 
 #ESCALAS
 def lista_escalas(request):

@@ -12,7 +12,7 @@ class Medico(models.Model):
     def __str__(self):
         return str(self.nome) 
 
-
+'''
 class Posto(models.Model):
     nome = models.CharField(max_length=50)
     rua = models.CharField(max_length=50)
@@ -26,6 +26,7 @@ class Posto(models.Model):
 
     def __str__(self):
         return self.nome
+'''
 
 
 class Folga(models.Model):
@@ -41,7 +42,7 @@ class Folga(models.Model):
 
 class Escala(models.Model):
     data = models.DateField(null=True)
-    posto = models.ForeignKey(Posto, on_delete=models.SET_NULL, null=True)
+    #posto = models.ForeignKey(Posto, on_delete=models.SET_NULL, null=True)
     medico = models.ForeignKey(Medico, on_delete=models.SET_NULL, null=True)
     disponivel = models.BooleanField(default=True)
 
