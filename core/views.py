@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+
 from .forms import(
     MedicoForm,
     PostoForm,
@@ -11,6 +12,7 @@ from core.models import (
     Folga,
     Escala,
 )
+
 import datetime
 from django.http import HttpResponse
 from django.template.loader import get_template

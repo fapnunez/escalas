@@ -6,12 +6,12 @@ from .models import (
     Escala
 )
 
-class Cad_manual_escalasAdmin(admin.ModelAdmin):
+
+class EscalaAdmin(admin.ModelAdmin):
     list_display = ('data', 'posto', 'medico')
+
 
 admin.site.register(Medico)
 admin.site.register(Posto)
 admin.site.register(Folga)
-admin.site.register(Escala, Cad_manual_escalasAdmin)
-
-# Register your models here.
+admin.site.register(Escala, EscalaAdmin)

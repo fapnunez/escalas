@@ -29,3 +29,4 @@ class EscalaForm(ModelForm):
     class Meta:
         model = Escala
         fields = '__all__'
+
